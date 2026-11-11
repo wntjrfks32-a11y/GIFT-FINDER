@@ -12,6 +12,7 @@ function CardPage() {
   const [title, setTitle] = useState('너의 특별한 날을 축하해')
   const [message, setMessage] = useState('항상 고맙고 소중해!')
   const [complete, setComplete] = useState(false)
+  const selectedDesign = designs.find((item) => item.id === design)
 
   return <main className="message-card-page">
     <section className="message-card-intro">
@@ -33,11 +34,14 @@ function CardPage() {
       <section className="message-preview-section" aria-labelledby="preview-heading">
         <h2 id="preview-heading">카드 미리보기</h2>
         <article className={`message-preview message-preview-${design}`}>
+          <img className="preview-art" src={selectedDesign.image} alt="" aria-hidden="true"/>
+          <div className={`preview-copy preview-copy-${design}`}>
           <p className="preview-kicker">WITH LOVE</p>
           <h3>{recipientName || '받는 사람에게'}</h3>
           <p className="preview-title">{title || '메시지 제목'}</p>
           <p className="preview-message">{message || '전하고 싶은 메시지'}</p>
           <p className="preview-sender">FROM. YOUR FRIEND</p>
+          </div>
         </article>
         <div className="message-card-action">
           <button type="button" onClick={() => setComplete(true)}>카드 완성하기 <span aria-hidden="true">→</span></button>
