@@ -33,8 +33,8 @@ function ResultsPage({ recipient, occasion, budget, giftStyle, onEdit, onHome, o
       </div>
       <p>당신의 취향에 맞는 선물을 골라봤어요.</p>
       <div className="product-grid">
-        {products.map((product) => <article className={`product-card${product.image ? '' : ' product-card--text-only'}`} key={product.name}>
-          {product.image && <img className="product-image" src={product.image} alt={product.alt}/>}
+        {products.map((product) => <article className="product-card" key={product.name}>
+          <img className="product-image" src={product.image} alt={product.alt}/>
           <h3>{product.name}</h3>
           <p className="product-price">{product.price}</p>
           <p className="product-description">{product.description}</p>
