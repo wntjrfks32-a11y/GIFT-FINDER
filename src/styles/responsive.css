@@ -1,0 +1,281 @@
+
+@media (min-width: 1500px) {
+  .header { height: 160px; }
+  .brand { gap: 16px; font-size: 36px; }
+  .brand svg { width: 70px; height: 70px; }
+  .nav a { font-size: 19px; }
+  .hero { min-height: 680px; padding-top: 78px; }
+  .hero h1 { font-size: 70px; }
+  .hero-copy p { font-size: 20px; }
+  .primary-button { min-width: 300px; height: 68px; font-size: 20px; }
+  .recipients h2 { font-size: 36px; }
+  .recipient-name, .recipient-description { font-size: 24px; }
+  .recommend-page { width: min(1900px, calc(100% - 160px)); }
+  .recommend-intro h1, .result-intro h1 { font-size: 48px; }
+  .question-block legend { font-size: 30px; }
+  .quiz-recipient-name, .quiz-recipient-description { font-size: 21px; }
+  .choice-pill { min-width: 200px; min-height: 64px; font-size: 21px; }
+  .gift-style-card span { font-size: 20px; }
+  .process-section { width: min(1900px, calc(100% - 160px)); }
+  .process-heading h2 { font-size: 36px; }
+  .process-card { min-height: 175px; }
+  .process-card h3 { font-size: 24px; }
+  .process-card p { font-size: 18px; }
+  .footer { padding: 70px 3% 52px; }
+  .footer-brand { font-size: 36px; }
+  .footer-heading p { margin-top: 10px; font-size: 20px; }
+  .footer-links { gap: clamp(50px, 5vw, 85px); }
+  .footer-links a, .footer-links span { font-size: 19px; }
+  .footer-bottom { margin-top: 52px; padding-top: 22px; }
+  .footer-bottom small { font-size: 16px; }
+  .footer-social { gap: 34px; }
+  .footer-social svg { width: 40px; height: 36px; }
+  .result-page { width: min(2000px, calc(100% - 160px)); padding-top: 66px; padding-bottom: 52px; }
+  .result-conditions h2 { font-size: 25px; }
+  .condition-tag { min-width: 100px; padding: 13px 20px; font-size: 17px; }
+  .result-products-heading h2 { font-size: 36px; }
+  .result-products > p { font-size: 18px; }
+  .product-grid { width: min(1750px, 96%); gap: clamp(70px, 5vw, 110px); }
+  .product-card { padding: 40px 28px 25px; }
+  .product-card h3 { font-size: 24px; }
+  .product-price { font-size: 26px; }
+  .product-description { max-width: 340px; font-size: 17px; }
+  .result-guide-button { min-width: 330px; min-height: 68px; font-size: 19px; }
+  .result-secondary-actions { gap: 22px; }
+  .result-back-button, .result-home-button { min-width: 180px; min-height: 55px; font-size: 17px; }
+  .wrapping-page { width: min(1700px, calc(100% - 120px)); padding-top: 42px; }
+  .wrapping-intro h1 { font-size: 48px; }
+  .wrapping-subtitle { font-size: 20px; }
+  .wrapping-video-frame { width: min(1200px, 100%); margin-top: 46px; }
+  .wrapping-materials { width: min(1400px, 100%); margin-top: 34px; }
+  .wrapping-materials h2, .wrapping-steps-section > h2, .wrapping-tips-section > h2 { font-size: 34px; }
+  .material-card h3 { font-size: 20px; }
+  .wrapping-step-grid { gap: 46px 4%; }
+  .wrapping-step-image span { min-height: 42px; font-size: 18px; }
+  .wrapping-tips-grid { width: min(1400px, 100%); gap: 60px; }
+  .wrapping-tip-card h3 { font-size: 30px; }
+  .wrapping-tip-card p { font-size: 21px; }
+  .wrapping-end-action button { min-width: 300px; min-height: 64px; font-size: 20px; }
+  .message-card-page { width: min(1900px, calc(100% - 80px)); padding-top: 44px; }
+  .message-card-intro > p { font-size: 18px; }
+  .message-card-intro h1 { font-size: 48px; }
+  .message-card-intro > span { font-size: 20px; }
+  .design-section { width: min(1460px, 100%); margin-top: 34px; }
+  .design-section h2, .message-form h2 { font-size: 31px; }
+  .card-design-grid { grid-template-columns: repeat(3, minmax(0, 420px)); gap: 40px; }
+  .message-card-workspace { width: min(1500px, 100%); grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(60px, 4.6vw, 100px); margin-top: 40px; }
+  .message-form label { font-size: 18px; }
+  .message-form input, .message-form textarea { min-height: 58px; font-size: 18px; }
+  .message-form textarea { min-height: 100px; }
+  .message-preview-section h2 { font-size: 26px; }
+  .message-preview { min-height: 360px; }
+  .message-preview h3 { font-size: 30px; }
+  .preview-kicker, .preview-title, .preview-sender { font-size: 23px; }
+  .preview-message { font-size: 21px; }
+  .message-card-action button { min-width: 300px; min-height: 60px; font-size: 21px; }
+}
+
+@media (min-width: 1600px) {
+  .hero { width: min(1536px, calc(100% - 160px)); gap: clamp(80px, 6vw, 120px); }
+  .hero-copy { align-self: start; margin-top: 44px; }
+  .recipients { width: min(1500px, calc(100% - 100px)); margin: 0 auto; }
+  .recipient-grid { gap: clamp(40px, 3vw, 60px); }
+}
+
+@media (max-width: 1000px) {
+  .hero { width: min(760px, calc(100% - 56px)); min-height: 0; padding: 54px 0 58px; grid-template-columns: 1fr; gap: 42px; }
+  .hero-copy { padding-left: 24px; }
+  .hero-visual { width: min(100%, 620px); justify-self: center; }
+  .primary-button { margin-left: 0; }
+  .recipients { width: min(760px, calc(100% - 56px)); padding-top: 14px; }
+  .recipient-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 24px; }
+  .recommend-page { width: min(760px, calc(100% - 56px)); padding-top: 40px; }
+  .recommend-intro { margin-bottom: 36px; }
+  .quiz-recipient-grid, .gift-style-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  .choice-list { gap: 16px; }
+  .style-sparkle-two { right: -34px; width: 42px; }
+  .style-sparkle-three { left: -34px; width: 42px; }
+  .process-section { width: min(760px, calc(100% - 56px)); margin-top: 50px; }
+  .process-grid { width: 100%; gap: 14px; }
+  .process-card { padding-left: 10px; padding-right: 10px; }
+  .process-card p { font-size: 12px; }
+  .process-decoration { width: 110px; opacity: .75; }
+  .process-decoration-left { left: -28px; }
+  .process-decoration-right { right: -28px; }
+  .result-page { width: min(760px, calc(100% - 56px)); }
+  .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+  .product-card:last-child { width: calc(50% - 11px); grid-column: 1 / -1; justify-self: center; }
+  .result-star-two { left: -20px; width: 55px; }
+  .result-star-three { right: -20px; width: 55px; }
+  .wrapping-page { width: min(760px, calc(100% - 56px)); padding-top: 36px; }
+  .material-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+  .wrapping-step-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  .wrapping-tips-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 25px; }
+  .wrapping-tip-card:last-child { grid-column: 1 / -1; width: calc(50% - 12px); justify-self: center; }
+  .wrapping-end-action { gap: 18px; }
+  .wrapping-end-action button { min-width: 190px; }
+  .message-card-page { width: min(760px, calc(100% - 56px)); }
+  .card-design-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+  .message-card-workspace { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  .message-card-action { padding-top: 18px; }
+}
+
+@media (min-width: 561px) and (max-width: 1000px) {
+  .header { height: 88px; margin-inline: 24px; }
+  .brand { font-size: 21px; }
+  .brand svg { width: 43px; height: 43px; }
+  .nav { gap: clamp(22px, 4vw, 38px); margin-right: 8px; }
+  .hero h1 { font-size: clamp(38px, 6vw, 52px); }
+  .hero-copy p { white-space: normal; }
+  .recipients h2 { font-size: 24px; }
+  .recipient-name { font-size: 17px; }
+  .recipient-description { font-size: 15px; }
+  .material-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  .wrapping-tips-grid { gap: 20px; }
+  .footer { padding: 30px 24px 22px; }
+  .footer-links { gap: 22px; }
+}
+@media (min-width: 561px) and (max-width: 760px) {
+  .header { height: 78px; margin-inline: 18px; }
+  .brand { gap: 7px; font-size: 18px; }
+  .brand svg { width: 39px; height: 39px; }
+  .nav { gap: 15px; margin-right: 0; }
+  .nav a { font-size: 12px; }
+  .message-card-workspace { grid-template-columns: 1fr; gap: 26px; }
+  .message-preview-section { width: min(100%, 520px); margin-inline: auto; }
+  .message-card-action { padding-top: 14px; }
+  .footer-top { align-items: flex-start; gap: 24px; }
+  .footer-links { flex-wrap: wrap; justify-content: flex-end; gap: 12px 18px; }
+}
+
+@media (max-width: 560px) {
+  .header { height: 74px; margin: 0 16px; }
+  .brand { gap: 6px; font-size: 16px; }
+  .brand svg { width: 37px; height: 37px; }
+  .nav { gap: 13px; margin-right: 0; }
+  .nav a { font-size: 11px; }
+  .nav a:last-child { display: none; }
+  .hero { width: calc(100% - 42px); padding: 43px 0 45px; gap: 35px; }
+  .hero-copy { padding-left: 13px; }
+  .hero h1 { font-size: clamp(30px, 8vw, 40px); letter-spacing: -1.4px; }
+  .sparkle-left { left: -22px; width: 21px; }
+  .sparkle-right { right: -25px; width: 21px; }
+  .hero-copy p { margin-bottom: 27px; font-size: 13px; white-space: normal; }
+  .primary-button { min-width: 190px; height: 48px; font-size: 13px; }
+  .heart-doodle { right: -24px; bottom: -24px; width: 120px; }
+  .recipients { width: calc(100% - 40px); padding-top: 5px; }
+  .recipients h2 { margin-bottom: 24px; font-size: 19px; }
+  .recipient-grid { gap: 23px 14px; }
+  .recipient-art { border-width: 3px; border-radius: 8px; }
+  .recipient-name, .recipient-description { padding-left: 4px; font-size: 13px; }
+  .recommend-page { width: calc(100% - 40px); padding: 34px 0 40px; }
+  .recommend-intro { margin-bottom: 31px; }
+  .recommend-intro h1 { font-size: 27px; }
+  .recommend-intro p { margin-top: 12px; font-size: 13px; }
+  .question-block { margin-bottom: 25px; }
+  .question-block legend { margin-bottom: 12px; font-size: 18px; }
+  .quiz-recipient-grid { gap: 14px; }
+  .quiz-recipient { padding: 6px; border-radius: 9px; }
+  .quiz-recipient.is-selected { padding: 5px; }
+  .quiz-recipient img { border-radius: 6px; }
+  .quiz-recipient-name { margin-top: 6px; font-size: 13px; }
+  .quiz-recipient-description { font-size: 11px; }
+  .choice-question { margin-top: 10px; }
+  .choice-question > p { margin: 0 0 17px 3px; font-size: 14px; }
+  .choice-list { gap: 11px; padding-left: 0; }
+  .choice-pill { min-width: 0; min-height: 43px; padding: 8px 18px; font-size: 14px; }
+  .budget-question { margin-top: 28px; }
+  .recommend-actions { align-items: center; gap: 12px; margin-top: 22px; }
+  .recommend-submit { width: 100%; min-height: 48px; font-size: 14px; }
+  .recommend-summary { font-size: 13px; }
+  .style-question { margin-top: 30px; }
+  .gift-style-grid { gap: 14px; }
+  .gift-style-card { padding: 7px; border-radius: 9px; }
+  .gift-style-card.is-selected { padding: 6px; }
+  .gift-style-card img { border-radius: 6px; }
+  .gift-style-card span { margin-top: 7px; font-size: 13px; }
+  .gift-style-decorations { display: none; }
+  .process-section { width: calc(100% - 40px); margin-top: 40px; padding-bottom: 30px; }
+  .process-heading h2 { font-size: 20px; }
+  .process-heading p { margin-top: 10px; font-size: 12px; }
+  .process-grid { width: 100%; margin-top: 25px; grid-template-columns: 1fr; gap: 12px; }
+  .process-card { min-height: 116px; }
+  .process-decoration { display: none; }
+  .footer { padding: 25px 20px 20px; }
+  .footer-top { align-items: flex-start; flex-direction: column; gap: 22px; }
+  .footer-brand { font-size: 20px; }
+  .footer-heading p { font-size: 12px; }
+  .footer-links { width: 100%; flex-wrap: wrap; justify-content: space-between; gap: 12px 14px; }
+  .footer-links a, .footer-links span { font-size: 12px; }
+  .footer-bottom { margin-top: 20px; }
+  .footer-bottom small { font-size: 10px; }
+  .footer-social { gap: 12px; }
+  .footer-social svg { width: 22px; height: 22px; }
+  .result-page { width: calc(100% - 40px); padding: 36px 0 28px; }
+  .result-intro h1 { font-size: 26px; }
+  .result-intro p { margin-top: 13px; font-size: 13px; }
+  .result-conditions { margin-top: 27px; }
+  .result-conditions h2 { margin-bottom: 14px; font-size: 17px; }
+  .condition-tags { gap: 8px; }
+  .condition-tag { min-width: 0; padding: 7px 11px; font-size: 11px; }
+  .result-products { margin-top: 26px; }
+  .result-products-heading h2 { font-size: 21px; }
+  .result-products-heading img { width: 66px; height: 50px; }
+  .result-products > p { margin: 0 0 16px; font-size: 12px; }
+  .product-grid { width: 100%; grid-template-columns: 1fr; gap: 14px; }
+  .product-card, .product-card:last-child { width: 100%; grid-column: auto; padding: 14px; }
+  .product-image { aspect-ratio: 1.58 / 1; }
+  .product-card h3 { margin-top: 13px; font-size: 15px; }
+  .product-price { margin-top: 10px; font-size: 17px; }
+  .product-description { margin-top: 12px; font-size: 12px; }
+  .result-guide-button { width: 100%; }
+  .result-secondary-actions { width: 100%; gap: 10px; }
+  .result-back-button, .result-home-button { flex: 1; min-width: 0; padding: 0 10px; font-size: 12px; }
+  .result-decorations { display: none; }
+  .wrap-guide { padding: 15px; }
+  .wrapping-page { width: calc(100% - 40px); padding: 32px 0 42px; }
+  .wrapping-eyebrow { margin-bottom: 12px; font-size: 11px; }
+  .wrapping-intro h1 { font-size: 25px; }
+  .wrapping-subtitle { margin-top: 14px; font-size: 12px; line-height: 1.5; }
+  .wrapping-video-frame { margin-top: 25px; aspect-ratio: 1.35 / 1; }
+  .wrapping-video-sparkle { width: 24px; }
+  .wrapping-materials { margin-top: 22px; }
+  .wrapping-materials h2 { font-size: 19px; }
+  .material-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 19px 14px; margin-top: 15px; }
+  .material-card h3 { margin-top: 8px; font-size: 12px; }
+  .wrapping-steps-section, .wrapping-tips-section { margin-top: 35px; }
+  .wrapping-steps-section > h2, .wrapping-tips-section > h2 { font-size: 20px; }
+  .wrapping-step-grid { gap: 15px 12px; margin-top: 18px; }
+  .wrapping-step-image { aspect-ratio: 1.55 / 1; }
+  .wrapping-step-image span { min-height: 27px; padding: 6px 20px 5px 5px; font-size: 10px; }
+  .wrapping-step-image b { right: 6px; bottom: 5px; font-size: 11px; }
+  .wrapping-tips-grid { width: 100%; grid-template-columns: 1fr; gap: 22px; margin-top: 20px; }
+  .wrapping-tip-card:last-child { grid-column: auto; width: 100%; }
+  .wrapping-tip-card img { aspect-ratio: 1.45 / 1; }
+  .wrapping-tip-card h3 { margin-top: 9px; font-size: 17px; }
+  .wrapping-tip-card p { margin-top: 5px; font-size: 13px; }
+  .wrapping-end-action { margin-top: 30px; gap: 10px; }
+  .wrapping-end-action button { flex: 1; min-width: 0; min-height: 45px; padding: 0 8px; font-size: 13px; }
+  .message-card-page { width: calc(100% - 40px); padding: 30px 0 25px; }
+  .message-card-intro > p { margin-bottom: 10px; font-size: 11px; }
+  .message-card-intro h1 { font-size: 25px; }
+  .message-card-intro > span { margin-top: 12px; font-size: 12px; }
+  .design-section { margin-top: 24px; }
+  .design-section h2, .message-form h2 { font-size: 17px; }
+  .card-design-grid { gap: 9px; margin-top: 12px; }
+  .card-design-option { border-radius: 8px; }
+  .card-design-option img { aspect-ratio: 1.25 / 1; }
+  .message-card-workspace { grid-template-columns: 1fr; gap: 23px; margin-top: 23px; }
+  .message-form h2 { margin-bottom: 12px; }
+  .message-form label { margin-top: 9px; font-size: 12px; }
+  .message-form input, .message-form textarea { min-height: 41px; font-size: 12px; }
+  .message-form textarea { min-height: 74px; }
+  .message-preview-section h2 { font-size: 16px; }
+  .message-preview { min-height: 230px; padding: 18px; }
+  .message-preview h3 { font-size: 18px; }
+  .preview-title { font-size: 16px; }
+  .preview-message { font-size: 14px; }
+  .preview-sender { font-size: 15px; }
+  .message-card-action { padding-top: 14px; }
+  .message-card-action button { width: 100%; min-height: 46px; font-size: 14px; }
+}
