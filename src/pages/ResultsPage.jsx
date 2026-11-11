@@ -1,5 +1,6 @@
 import { giftStyles, recipients } from '../data/giftData.js'
 import getProductRecommendations from '../data/productRecommendations.js'
+import { assetUrl } from '../utils/assetUrl.js'
 
 function ResultDecorations() {
   return <div className="result-decorations" aria-hidden="true">
