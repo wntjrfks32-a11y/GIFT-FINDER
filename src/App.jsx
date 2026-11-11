@@ -14,11 +14,16 @@ import HomePage from './pages/HomePage.jsx'
 import RecommendationPage from './pages/RecommendationPage.jsx'
 import ResultsPage from './pages/ResultsPage.jsx'
 import WrappingPage from './pages/WrappingPage.jsx'
+import { appUrl } from './utils/assetUrl.js'
 
 function readLocation() {
   const url = new URL(window.location.href)
+  const basePath = import.meta.env.BASE_URL
+  const appPath = url.pathname.startsWith(basePath)
+    ? `/${url.pathname.slice(basePath.length)}`
+    : url.pathname
   return {
-    page: url.pathname === '/card' ? 'card' : url.pathname === '/wrapping' ? 'wrapping' : url.pathname === '/results' ? 'results' : url.pathname === '/recommend' ? 'recommend' : 'home',
+    page: appPath === '/card' ? 'card' : appPath === '/wrapping' ? 'wrapping' : appPath === '/results' ? 'results' : appPath === '/recommend' ? 'recommend' : 'home',
     recipient: url.searchParams.get('recipient'),
     occasion: url.searchParams.get('occasion'),
     budget: url.searchParams.get('budget'),
@@ -48,7 +53,7 @@ function App() {
   }, [])
 
   const goHome = (anchor = null) => {
-    window.history.pushState({}, '', '/')
+    window.history.pushState({}, '', appUrl('/'))
     setPage('home')
     if (anchor) {
       window.setTimeout(() => document.getElementById(anchor)?.scrollIntoView({ behavior: 'smooth' }), 0)
@@ -64,7 +69,7 @@ function App() {
     if (criteria?.budget) params.set('budget', criteria.budget)
     if (criteria?.giftStyle) params.set('style', criteria.giftStyle)
     const query = params.size ? `?${params.toString()}` : ''
-    window.history.pushState({}, '', `/recommend${query}`)
+    window.history.pushState({}, '', appUrl(`/recommend${query}`))
     setPage('recommend')
     setRecipient(recipientId)
     setOccasion(criteria?.occasion ?? null)
@@ -75,19 +80,19 @@ function App() {
 
   const goToResults = () => {
     const params = new URLSearchParams({ recipient, occasion, budget, style: giftStyle })
-    window.history.pushState({}, '', `/results?${params.toString()}`)
+    window.history.pushState({}, '', appUrl(`/results?${params.toString()}`))
     setPage('results')
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   const goToWrapping = () => {
-    window.history.pushState({}, '', '/wrapping')
+    window.history.pushState({}, '', appUrl('/wrapping'))
     setPage('wrapping')
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   const goToCard = () => {
-    window.history.pushState({}, '', '/card')
+    window.history.pushState({}, '', appUrl('/card'))
     setPage('card')
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
@@ -108,7 +113,7 @@ function App() {
           : isCard
             ? <CardPage/>
             : <HomePage onStart={goToRecommendation}/>}
-    {!isResults && !isWrapping && <Footer/>}
+    {!isResults && !isWrapping && <Footer onStart={() => goToRecommendation()}/>}
   </div>
 }
 

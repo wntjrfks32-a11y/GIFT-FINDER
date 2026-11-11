@@ -1,4 +1,5 @@
 import GiftIcon from './GiftIcon.jsx'
+import { appUrl } from '../utils/assetUrl.js'
 
 function Header({ onHome, onStart, isRecommendation, isWrapping }) {
   const handleStart = (event) => {
@@ -15,11 +16,11 @@ function Header({ onHome, onStart, isRecommendation, isWrapping }) {
   }
 
   return <header className="header">
-    <a className="brand" href="/" onClick={handleHome} aria-label="Gift Finder 홈"><GiftIcon/><span>GIFT FINDER</span></a>
+    <a className="brand" href={appUrl('/')} onClick={handleHome} aria-label="Gift Finder 홈"><GiftIcon/><span>GIFT FINDER</span></a>
     <nav className="nav" aria-label="메인 메뉴">
       {isWrapping
-        ? <><a href="/recommend" onClick={handleStart}>선물 찾기</a><a href="/wrapping" aria-current="page">포장 가이드</a></>
-        : <><a href="/recommend" onClick={handleStart} aria-current={isRecommendation ? 'page' : undefined}>선물 찾기</a><a href="/#recipients" onClick={handleRecipients}>인기 선물</a><a href="/#recipients" onClick={handleRecipients}>선물 가이드</a></>}
+        ? <><a href={appUrl('/recommend')} onClick={handleStart}>선물 찾기</a><a href={appUrl('/wrapping')} aria-current="page">포장 가이드</a></>
+        : <><a href={appUrl('/recommend')} onClick={handleStart} aria-current={isRecommendation ? 'page' : undefined}>선물 찾기</a><a href={appUrl('/#recipients')} onClick={handleRecipients}>인기 선물</a><a href={appUrl('/#recipients')} onClick={handleRecipients}>선물 가이드</a></>}
     </nav>
   </header>
 }

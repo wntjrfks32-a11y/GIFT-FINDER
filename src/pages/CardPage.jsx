@@ -1,10 +1,11 @@
 import { useState } from 'react'
+import { assetUrl } from '../utils/assetUrl.js'
 
 function CardPage() {
   const designs = [
-    { id: 'classic', image: '/images/message-design-1.png', alt: '크래프트 봉투와 카드 디자인' },
-    { id: 'ribbon', image: '/images/message-design-2.png', alt: '버건디 리본 카드 디자인' },
-    { id: 'minimal', image: '/images/message-design-3.png', alt: '심플한 세로형 카드 디자인' },
+    { id: 'classic', image: assetUrl('/images/message-design-1.png'), alt: '크래프트 봉투와 카드 디자인' },
+    { id: 'ribbon', image: assetUrl('/images/message-design-2.png'), alt: '버건디 리본 카드 디자인' },
+    { id: 'minimal', image: assetUrl('/images/message-design-3.png'), alt: '심플한 세로형 카드 디자인' },
   ]
   const [design, setDesign] = useState('classic')
   const [recipientName, setRecipientName] = useState('사랑하는 OO에게')

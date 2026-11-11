@@ -1,0 +1,9 @@
+export function assetUrl(path) {
+  const relativePath = path.replace(/^\/+/, '')
+  return `${import.meta.env.BASE_URL}${relativePath}`
+}
+
+export function appUrl(path = '/') {
+  const relativePath = path.replace(/^\/+/, '')
+  return `${import.meta.env.BASE_URL}${relativePath}`
+}

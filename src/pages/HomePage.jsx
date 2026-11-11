@@ -1,5 +1,6 @@
 import Sparkle from '../components/Sparkle.jsx'
 import { recipients } from '../data/giftData.js'
+import { assetUrl } from '../utils/assetUrl.js'
 
 function HomePage({ onStart }) {
   return <main>
@@ -9,7 +10,7 @@ function HomePage({ onStart }) {
         <p>소중한 사람을 위한 특별한 선물을 찾아보세요.</p>
         <a className="primary-button" href="/recommend" onClick={(event) => { event.preventDefault(); onStart() }}>나에게 맞는 선물 찾기 <span aria-hidden="true">→</span></a>
       </div>
-      <div className="hero-visual"><img className="hero-art" src="/images/hero-photo.png" alt="리본 선물 상자와 장미 꽃다발"/><img aria-hidden="true" className="heart-doodle" src="/images/heart-ribbon.png" alt=""/></div>
+      <div className="hero-visual"><img className="hero-art" src={assetUrl('/images/hero-photo.png')} alt="리본 선물 상자와 장미 꽃다발"/><img aria-hidden="true" className="heart-doodle" src={assetUrl('/images/heart-ribbon.png')} alt=""/></div>
     </section>
     <section className="recipients" id="recipients">
       <h2>누구에게 선물을 하고 싶나요?</h2>
