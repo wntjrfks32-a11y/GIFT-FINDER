@@ -42,6 +42,8 @@
 
 .recommend-actions { min-height: 58px; margin-top: 32px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 15px; }
 
+.recommend-hint { margin: 0; color: var(--muted); font-size: 13px; text-align: center; }
+
 .recommend-submit { min-width: 220px; min-height: 52px; padding: 0 24px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 0; border-radius: 28px; background: var(--rust); box-shadow: 0 3px 4px #49352f38; color: #fffaf7; cursor: pointer; font: inherit; font-size: 16px; font-weight: 650; transition: background-color 150ms ease, transform 150ms ease, opacity 150ms ease; }
 
 .recommend-submit:hover:not(:disabled) { transform: translateY(-2px); background: #824239; }

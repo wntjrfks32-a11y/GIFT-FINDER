@@ -14,7 +14,7 @@ function ResultsPage({ recipient, occasion, budget, giftStyle, onEdit, onHome, o
   const selectedStyle = giftStyles.find((item) => item.id === giftStyle)
   const conditions = [selectedRecipient?.name, occasion, budget, selectedStyle?.name].filter(Boolean)
   const budgetIndex = Math.max(0, budgets.indexOf(budget))
-  const products = productRecommendations[budgetIndex]
+  const products = productRecommendations[budgetIndex] ?? productRecommendations[0]
 
   return <main className="result-page">
     <ResultDecorations/>

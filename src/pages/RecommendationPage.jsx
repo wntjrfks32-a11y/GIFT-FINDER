@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { budgets, giftStyles, occasions, recipients } from '../data/giftData.js'
 
 function GiftStyleDecorations() {
@@ -27,10 +28,25 @@ function RecommendationPage({ recipient, setRecipient, occasion, setOccasion, bu
   const chosenRecipient = recipients.find((item) => item.id === recipient)
   const chosenStyle = giftStyles.find((item) => item.id === giftStyle)
   const ready = Boolean(chosenRecipient && occasion && budget && chosenStyle)
+  const [validationMessage, setValidationMessage] = useState('')
+
+  const updateSelection = (setter, value) => {
+    setter(value)
+    setValidationMessage('')
+  }
 
   const submit = (event) => {
     event.preventDefault()
-    if (ready) onSubmit()
+    if (!ready) {
+      const missing = []
+      if (!chosenRecipient) missing.push('선물 받을 사람')
+      if (!occasion) missing.push('선물 상황')
+      if (!budget) missing.push('예산')
+      if (!chosenStyle) missing.push('선물 스타일')
+      setValidationMessage(`${missing.join(', ')}을(를) 먼저 선택해 주세요.`)
+      return
+    }
+    onSubmit()
   }
 
   return <main className="recommend-page" id="recommend-page">
@@ -42,7 +58,7 @@ function RecommendationPage({ recipient, setRecipient, occasion, setOccasion, bu
       <fieldset className="question-block recipient-question">
         <legend>1. 누구에게 선물하나요?</legend>
         <div className="quiz-recipient-grid">
-          {recipients.map((item) => <button className={`quiz-recipient${recipient === item.id ? ' is-selected' : ''}`} type="button" key={item.id} onClick={() => setRecipient(item.id)} aria-pressed={recipient === item.id}>
+          {recipients.map((item) => <button className={`quiz-recipient${recipient === item.id ? ' is-selected' : ''}`} type="button" key={item.id} onClick={() => updateSelection(setRecipient, item.id)} aria-pressed={recipient === item.id}>
             <img src={item.image} alt=""/>
             <span className="quiz-recipient-name">{item.name}</span>
             <span className="quiz-recipient-description">{item.description}</span>
@@ -53,20 +69,20 @@ function RecommendationPage({ recipient, setRecipient, occasion, setOccasion, bu
         <legend>2. 어떤 상황인가요?</legend>
         <p>선물하는 상황을 하나 선택해 주세요.</p>
         <div className="choice-list">
-          {occasions.map((item) => <button className={`choice-pill${occasion === item ? ' is-selected' : ''}`} type="button" key={item} onClick={() => setOccasion(item)} aria-pressed={occasion === item}>{item}</button>)}
+          {occasions.map((item) => <button className={`choice-pill${occasion === item ? ' is-selected' : ''}`} type="button" key={item} onClick={() => updateSelection(setOccasion, item)} aria-pressed={occasion === item}>{item}</button>)}
         </div>
       </fieldset>
       <fieldset className="question-block choice-question budget-question">
         <legend>3. 선물 예산은 얼마인가요?</legend>
         <div className="choice-list">
-          {budgets.map((item) => <button className={`choice-pill${budget === item ? ' is-selected' : ''}`} type="button" key={item} onClick={() => setBudget(item)} aria-pressed={budget === item}>{item}</button>)}
+          {budgets.map((item) => <button className={`choice-pill${budget === item ? ' is-selected' : ''}`} type="button" key={item} onClick={() => updateSelection(setBudget, item)} aria-pressed={budget === item}>{item}</button>)}
         </div>
       </fieldset>
       <fieldset className="question-block style-question">
         <legend>4. 마지막으로 선물 스타일을 선택해주세요.</legend>
         <p>받는 사람에게 어울리는 선물 분위기를 골라보세요.</p>
         <div className="gift-style-grid">
-          {giftStyles.map((item) => <button className={`gift-style-card${giftStyle === item.id ? ' is-selected' : ''}`} type="button" key={item.id} onClick={() => setGiftStyle(item.id)} aria-pressed={giftStyle === item.id}>
+          {giftStyles.map((item) => <button className={`gift-style-card${giftStyle === item.id ? ' is-selected' : ''}`} type="button" key={item.id} onClick={() => updateSelection(setGiftStyle, item.id)} aria-pressed={giftStyle === item.id}>
             <img src={item.image} alt=""/>
             <span>{item.name}</span>
           </button>)}
@@ -74,7 +90,8 @@ function RecommendationPage({ recipient, setRecipient, occasion, setOccasion, bu
         <GiftStyleDecorations/>
       </fieldset>
       <div className="recommend-actions">
-        <button className="recommend-submit" type="submit" disabled={!ready}>선물 추천 받기 <span aria-hidden="true">→</span></button>
+        <p className="recommend-hint" role="status">{validationMessage || (ready ? '\uC870\uAC74\uC744 \uBAA8\uB450 \uACE8\uB790\uC5B4\uC694. \uCD94\uCC9C \uACB0\uACFC\uB97C \uD655\uC778\uD574 \uBCF4\uC138\uC694.' : '\uBC1B\uB294 \uC0AC\uB78C, \uC0C1\uD669, \uC608\uC0B0, \uC2A4\uD0C0\uC77C\uC744 \uBAA8\uB450 \uC120\uD0DD\uD574 \uC8FC\uC138\uC694.')}</p>
+        <button className="recommend-submit" type="submit">선물 추천 받기 <span aria-hidden="true">→</span></button>
       </div>
     </form>
     <ProcessSection/>
