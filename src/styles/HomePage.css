@@ -24,7 +24,7 @@
 
 .heart-doodle { position: absolute; right: -96px; bottom: -60px; width: 230px; height: auto; pointer-events: none; }
 
-.recipients { position: relative; width: min(1208px, calc(100% - 86px)); margin: 0 0 0 3%; padding: 24px 0 14px; }
+.recipients { position: relative; width: min(1208px, calc(100% - 48px)); margin: 0 auto; padding: 24px 0 14px; }
 
 .recipients h2 { margin: 0 0 50px; font-size: 27px; font-weight: 700; letter-spacing: -1px; }
 
