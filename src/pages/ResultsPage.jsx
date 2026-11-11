@@ -1,5 +1,5 @@
-import { budgets, giftStyles, recipients } from '../data/giftData.js'
-import productRecommendations from '../data/productRecommendations.js'
+import { giftStyles, recipients } from '../data/giftData.js'
+import getProductRecommendations from '../data/productRecommendations.js'
 
 function ResultDecorations() {
   return <div className="result-decorations" aria-hidden="true">
@@ -13,8 +13,7 @@ function ResultsPage({ recipient, occasion, budget, giftStyle, onEdit, onHome, o
   const selectedRecipient = recipients.find((item) => item.id === recipient)
   const selectedStyle = giftStyles.find((item) => item.id === giftStyle)
   const conditions = [selectedRecipient?.name, occasion, budget, selectedStyle?.name].filter(Boolean)
-  const budgetIndex = Math.max(0, budgets.indexOf(budget))
-  const products = productRecommendations[budgetIndex] ?? productRecommendations[0]
+  const products = getProductRecommendations({ budget, giftStyle, recipient, occasion })
 
   return <main className="result-page">
     <ResultDecorations/>
