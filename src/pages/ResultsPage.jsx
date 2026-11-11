@@ -14,7 +14,7 @@ function ResultsPage({ recipient, occasion, budget, giftStyle, onEdit, onHome, o
   const selectedRecipient = recipients.find((item) => item.id === recipient)
   const selectedStyle = giftStyles.find((item) => item.id === giftStyle)
   const conditions = [selectedRecipient?.name, occasion, budget, selectedStyle?.name].filter(Boolean)
-  const products = getProductRecommendations({ budget, giftStyle, recipient, occasion })
+  const products = getProductRecommendations({ budget, giftStyle })
 
   return <main className="result-page">
     <ResultDecorations/>
