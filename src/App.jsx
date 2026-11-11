@@ -14,10 +14,13 @@ import HomePage from './pages/HomePage.jsx'
 import RecommendationPage from './pages/RecommendationPage.jsx'
 import ResultsPage from './pages/ResultsPage.jsx'
 import WrappingPage from './pages/WrappingPage.jsx'
-import { appUrl } from './utils/assetUrl.js'
+import { appRouteUrl } from './utils/assetUrl.js'
 
 function readLocation() {
-  const url = new URL(window.location.href)
+  const currentUrl = new URL(window.location.href)
+  const url = currentUrl.hash.startsWith('#/')
+    ? new URL(currentUrl.hash.slice(1), currentUrl.origin)
+    : currentUrl
   const basePath = import.meta.env.BASE_URL
   const appPath = url.pathname.startsWith(basePath)
     ? `/${url.pathname.slice(basePath.length)}`
@@ -53,7 +56,7 @@ function App() {
   }, [])
 
   const goHome = (anchor = null) => {
-    window.history.pushState({}, '', appUrl('/'))
+    window.history.pushState({}, '', appRouteUrl('/'))
     setPage('home')
     if (anchor) {
       window.setTimeout(() => document.getElementById(anchor)?.scrollIntoView({ behavior: 'smooth' }), 0)
@@ -69,7 +72,7 @@ function App() {
     if (criteria?.budget) params.set('budget', criteria.budget)
     if (criteria?.giftStyle) params.set('style', criteria.giftStyle)
     const query = params.size ? `?${params.toString()}` : ''
-    window.history.pushState({}, '', appUrl(`/recommend${query}`))
+    window.history.pushState({}, '', appRouteUrl(`/recommend${query}`))
     setPage('recommend')
     setRecipient(recipientId)
     setOccasion(criteria?.occasion ?? null)
@@ -80,19 +83,19 @@ function App() {
 
   const goToResults = () => {
     const params = new URLSearchParams({ recipient, occasion, budget, style: giftStyle })
-    window.history.pushState({}, '', appUrl(`/results?${params.toString()}`))
+    window.history.pushState({}, '', appRouteUrl(`/results?${params.toString()}`))
     setPage('results')
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   const goToWrapping = () => {
-    window.history.pushState({}, '', appUrl('/wrapping'))
+    window.history.pushState({}, '', appRouteUrl('/wrapping'))
     setPage('wrapping')
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   const goToCard = () => {
-    window.history.pushState({}, '', appUrl('/card'))
+    window.history.pushState({}, '', appRouteUrl('/card'))
     setPage('card')
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
