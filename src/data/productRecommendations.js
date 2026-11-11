@@ -32,19 +32,19 @@ const catalogs = {
   ],
   emotional: [
     {
-      images: ['/images/tea-set.svg'],
+      images: [null],
       alt: '찻주전자와 찻잔, 차통으로 구성한 티 세트',
       names: ['티 세트', '프리미엄 티 세트', '티웨어 기프트 세트', '시그니처 티웨어 컬렉션'],
       descriptions: ['찻잔과 차를 함께 담은 기본 구성입니다.', '엄선한 차를 더한 프리미엄 구성입니다.', '차와 티웨어를 함께 구성했습니다.', '고급 티웨어와 차를 담은 컬렉션입니다.'],
     },
     {
-      images: ['/images/result-flower.png', '/images/result-flower.png', '/images/result-flower.png', '/images/tea-set.svg'],
+      images: ['/images/result-flower.png', '/images/result-flower.png', '/images/result-flower.png', null],
       alt: '꽃다발 또는 꽃과 차를 담은 선물 구성',
       names: ['미니 꽃다발', '장미 꽃다발', '프리미엄 꽃다발', '플라워·티 기프트 세트'],
       descriptions: ['계절 꽃으로 구성한 작은 꽃다발입니다.', '장미를 중심으로 구성한 꽃다발입니다.', '꽃의 양과 포장을 더한 꽃다발입니다.', '꽃과 차를 함께 담은 선물 구성입니다.'],
     },
     {
-      images: ['/images/tea-collection.svg'],
+      images: [null],
       alt: '차통과 찻잔이 담긴 티 컬렉션',
       names: ['티타임 세트', '티·머그 세트', '프리미엄 티 컬렉션', '프리미엄 티웨어 세트'],
       descriptions: ['차와 찻잔을 함께 담았습니다.', '차와 머그를 함께 담은 구성입니다.', '여러 종류의 차를 담은 컬렉션입니다.', '고급 찻잔과 차를 함께 구성했습니다.'],
@@ -58,13 +58,13 @@ const catalogs = {
       descriptions: ['작은 크기의 토끼 인형입니다.', '분홍 리본을 더한 토끼 인형입니다.', '크기를 키운 토끼 인형입니다.', '특대형 토끼 인형을 선물 상자에 담았습니다.'],
     },
     {
-      images: ['/images/cute-figurines.svg'],
+      images: [null],
       alt: '곰, 토끼, 고양이 캐릭터 피규어 세트',
       names: ['캐릭터 미니 피규어', '캐릭터 피규어 세트', '캐릭터 피규어 3종 세트', '한정판 피규어 컬렉터 세트'],
       descriptions: ['캐릭터 피규어 하나로 구성한 상품입니다.', '귀여운 캐릭터 피규어를 모은 세트입니다.', '곰·토끼·고양이 피규어 3종 구성입니다.', '세 가지 피규어와 수집용 패키지를 담았습니다.'],
     },
     {
-      images: ['/images/cute-stationery.svg', '/images/cute-stationery.svg', '/images/cute-figurines.svg', '/images/cute-figurines.svg'],
+      images: [null],
       alt: '파스텔 색상의 캐릭터 문구 세트 또는 피규어',
       names: ['캐릭터 문구 세트', '다이어리·펜 세트', '캐릭터 피규어 세트', '한정판 캐릭터 피규어 컬렉션'],
       descriptions: ['캐릭터 노트와 펜으로 구성했습니다.', '다이어리와 문구를 함께 담았습니다.', '캐릭터 피규어를 모은 구성입니다.', '캐릭터 피규어 3종을 수집용 상자에 담았습니다.'],
@@ -98,13 +98,19 @@ function getProductRecommendations({ budget, giftStyle }) {
   const selectedStyle = giftStyles.some((style) => style.id === giftStyle) ? giftStyle : 'practical'
   const catalog = catalogs[selectedStyle] ?? catalogs.practical
 
-  return catalog.map((product, index) => ({
-    name: product.names[budgetIndex],
-    price: `${pricesByBudget[budgetIndex][index].toLocaleString('ko-KR')}원`,
-    image: assetUrl(product.images[budgetIndex] ?? product.images[0]),
-    alt: product.alt,
-    description: product.descriptions[budgetIndex],
-  }))
+  return catalog.map((product, index) => {
+    const imagePath = product.images[budgetIndex] !== undefined
+      ? product.images[budgetIndex]
+      : product.images[0]
+
+    return {
+      name: product.names[budgetIndex],
+      price: `${pricesByBudget[budgetIndex][index].toLocaleString('ko-KR')}원`,
+      image: imagePath ? assetUrl(imagePath) : null,
+      alt: product.alt,
+      description: product.descriptions[budgetIndex],
+    }
+  })
 }
 
 export default getProductRecommendations
